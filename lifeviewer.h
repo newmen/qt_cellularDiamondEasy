@@ -105,8 +105,8 @@ private:
     void loadFromFile(QString file);
     // GL Primitives
     // Implemented in 'GLPrimitives.cpp'
-    void primCube(const coord& center, const float a);  //Cube
-    void primCubeWF(const coord& center, const float a);     // Cube wireframe
+    void primCube(const coord& center, float a);  //Cube
+    void primCubeWF(const coord& center, float a);     // Cube wireframe
     void primCubeWF(const coord& p1, const coord& p2);     // Cube wireframe
 };
 

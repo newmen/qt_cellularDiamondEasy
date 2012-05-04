@@ -3,7 +3,7 @@
 
 #include <vector>
 
-typedef std::pair< std::pair<int,int> , std::pair<int,int> > coord;
+typedef std::pair< std::pair<int, int>, std::pair<int, int> > coord;
 typedef std::vector<coord> frame;
 typedef std::vector<frame> frames;
 #define W first.first

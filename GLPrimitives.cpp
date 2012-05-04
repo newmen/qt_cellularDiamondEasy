@@ -1,151 +1,90 @@
 #include "lifeviewer.h"
 
-// Cube
-void LifeViewer::primCube(const coord& center, const float a)
-{
-	float x = center.X;
-	float y = center.Y;
+void specifyCoords(const coord &center, float a, float &x, float &y, float &z, float &az) {
+    x = center.X;
+    y = center.Y;
+    z = center.Z * .5f;
+    az = a * .5f;
 
-	if (center.Z % 4 == 3) {
-		y -= .5f;
-	} else if (center.Z % 4 == 2) {
+    if (center.Z % 4 == 3) {
+        y -= .5f;
+    } else if (center.Z % 4 == 2) {
 //		x += .5f;
-	} else if (center.Z % 4 == 1) {
-		x -= .5f;
-	} else {
-		x -= .5f;
-		y -= .5f;
-	}
+    } else if (center.Z % 4 == 1) {
+        x -= .5f;
+    } else {
+        x -= .5f;
+        y -= .5f;
+    }
+}
+
+// Cube
+void LifeViewer::primCube(const coord& center, float a)
+{
+    float x, y, z, az;
+    specifyCoords(center, a, x, y, z, az);
 
     glBegin(GL_QUADS);
-    glVertex3f(x+a, y+a, center.Z+a);
-    glVertex3f(x+a, y-a, center.Z+a);
-    glVertex3f(x-a, y-a, center.Z+a);
-    glVertex3f(x-a, y+a, center.Z+a);
+    glVertex3f(x + a, y + a, z + az);
+    glVertex3f(x + a, y - a, z + az);
+    glVertex3f(x - a, y - a, z + az);
+    glVertex3f(x - a, y + a, z + az);
 
-    glVertex3f(x+a, y+a, center.Z-a);
-    glVertex3f(x+a, y-a, center.Z-a);
-    glVertex3f(x-a, y-a, center.Z-a);
-    glVertex3f(x-a, y+a, center.Z-a);
+    glVertex3f(x + a, y + a, z - az);
+    glVertex3f(x + a, y - a, z - az);
+    glVertex3f(x - a, y - a, z - az);
+    glVertex3f(x - a, y + a, z - az);
 
-    glVertex3f(x+a, y+a, center.Z+a);
-    glVertex3f(x+a, y+a, center.Z-a);
-    glVertex3f(x+a, y-a, center.Z-a);
-    glVertex3f(x+a, y-a, center.Z+a);
+    glVertex3f(x + a, y + a, z + az);
+    glVertex3f(x + a, y + a, z - az);
+    glVertex3f(x + a, y - a, z - az);
+    glVertex3f(x + a, y - a, z + az);
 
-    glVertex3f(x-a, y+a, center.Z+a);
-    glVertex3f(x-a, y+a, center.Z-a);
-    glVertex3f(x-a, y-a, center.Z-a);
-    glVertex3f(x-a, y-a, center.Z+a);
+    glVertex3f(x - a, y + a, z + az);
+    glVertex3f(x - a, y + a, z - az);
+    glVertex3f(x - a, y - a, z - az);
+    glVertex3f(x - a, y - a, z + az);
 
-    glVertex3f(x+a, y+a, center.Z+a);
-    glVertex3f(x+a, y+a, center.Z-a);
-    glVertex3f(x-a, y+a, center.Z-a);
-    glVertex3f(x-a, y+a, center.Z+a);
+    glVertex3f(x + a, y + a, z + az);
+    glVertex3f(x + a, y + a, z - az);
+    glVertex3f(x - a, y + a, z - az);
+    glVertex3f(x - a, y + a, z + az);
 
-    glVertex3f(x+a, y-a, center.Z+a);
-    glVertex3f(x+a, y-a, center.Z-a);
-    glVertex3f(x-a, y-a, center.Z-a);
-    glVertex3f(x-a, y-a, center.Z+a);
+    glVertex3f(x + a, y - a, z + az);
+    glVertex3f(x + a, y - a, z - az);
+    glVertex3f(x - a, y - a, z - az);
+    glVertex3f(x - a, y - a, z + az);
     glEnd();
-
-//    glBegin(GL_QUADS);
-//    glVertex3f(center.X+a, center.Y+a, center.Z+a);
-//    glVertex3f(center.X+a, center.Y-a, center.Z+a);
-//    glVertex3f(center.X-a, center.Y-a, center.Z+a);
-//    glVertex3f(center.X-a, center.Y+a, center.Z+a);
-//
-//    glVertex3f(center.X+a, center.Y+a, center.Z-a);
-//    glVertex3f(center.X+a, center.Y-a, center.Z-a);
-//    glVertex3f(center.X-a, center.Y-a, center.Z-a);
-//    glVertex3f(center.X-a, center.Y+a, center.Z-a);
-//
-//    glVertex3f(center.X+a, center.Y+a, center.Z+a);
-//    glVertex3f(center.X+a, center.Y+a, center.Z-a);
-//    glVertex3f(center.X+a, center.Y-a, center.Z-a);
-//    glVertex3f(center.X+a, center.Y-a, center.Z+a);
-//
-//    glVertex3f(center.X-a, center.Y+a, center.Z+a);
-//    glVertex3f(center.X-a, center.Y+a, center.Z-a);
-//    glVertex3f(center.X-a, center.Y-a, center.Z-a);
-//    glVertex3f(center.X-a, center.Y-a, center.Z+a);
-//
-//    glVertex3f(center.X+a, center.Y+a, center.Z+a);
-//    glVertex3f(center.X+a, center.Y+a, center.Z-a);
-//    glVertex3f(center.X-a, center.Y+a, center.Z-a);
-//    glVertex3f(center.X-a, center.Y+a, center.Z+a);
-//
-//    glVertex3f(center.X+a, center.Y-a, center.Z+a);
-//    glVertex3f(center.X+a, center.Y-a, center.Z-a);
-//    glVertex3f(center.X-a, center.Y-a, center.Z-a);
-//    glVertex3f(center.X-a, center.Y-a, center.Z+a);
-//    glEnd();
-
 }
 
 // Cube wireframe
-void LifeViewer::primCubeWF(const coord& center, const float a)
+void LifeViewer::primCubeWF(const coord& center, float a)
 {
-	float x = center.X;
-	float y = center.Y;
-
-	if (center.Z % 4 == 3) {
-		y -= .5f;
-	} else if (center.Z % 4 == 2) {
-//		x += .5f;
-	} else if (center.Z % 4 == 1) {
-		x -= .5f;
-	} else {
-		x -= .5f;
-		y -= .5f;
-	}
+    float x, y, z, az;
+    specifyCoords(center, a, x, y, z, az);
 
     glBegin(GL_LINE_LOOP);
-    glVertex3f(x+a, y+a, center.Z+a);
-    glVertex3f(x+a, y+a, center.Z-a);
-    glVertex3f(x+a, y-a, center.Z-a);
-    glVertex3f(x+a, y-a, center.Z+a);
+    glVertex3f(x + a, y + a, z + az);
+    glVertex3f(x + a, y + a, z - az);
+    glVertex3f(x + a, y - a, z - az);
+    glVertex3f(x + a, y - a, z + az);
     glEnd();
     glBegin(GL_LINE_LOOP);
-    glVertex3f(x-a, y+a, center.Z+a);
-    glVertex3f(x-a, y+a, center.Z-a);
-    glVertex3f(x-a, y-a, center.Z-a);
-    glVertex3f(x-a, y-a, center.Z+a);
+    glVertex3f(x - a, y + a, z + az);
+    glVertex3f(x - a, y + a, z - az);
+    glVertex3f(x - a, y - a, z - az);
+    glVertex3f(x - a, y - a, z + az);
     glEnd();
     glBegin(GL_LINES);
-    glVertex3f(x+a, y+a, center.Z+a);
-    glVertex3f(x-a, y+a, center.Z+a);
-    glVertex3f(x+a, y+a, center.Z-a);
-    glVertex3f(x-a, y+a, center.Z-a);
-    glVertex3f(x+a, y-a, center.Z-a);
-    glVertex3f(x-a, y-a, center.Z-a);
-    glVertex3f(x+a, y-a, center.Z+a);
-    glVertex3f(x-a, y-a, center.Z+a);
+    glVertex3f(x + a, y + a, z + az);
+    glVertex3f(x - a, y + a, z + az);
+    glVertex3f(x + a, y + a, z - az);
+    glVertex3f(x - a, y + a, z - az);
+    glVertex3f(x + a, y - a, z - az);
+    glVertex3f(x - a, y - a, z - az);
+    glVertex3f(x + a, y - a, z + az);
+    glVertex3f(x - a, y - a, z + az);
     glEnd();
-
-//    glBegin(GL_LINE_LOOP);
-//    glVertex3f(center.X+a, center.Y+a, center.Z+a);
-//    glVertex3f(center.X+a, center.Y+a, center.Z-a);
-//    glVertex3f(center.X+a, center.Y-a, center.Z-a);
-//    glVertex3f(center.X+a, center.Y-a, center.Z+a);
-//    glEnd();
-//    glBegin(GL_LINE_LOOP);
-//    glVertex3f(center.X-a, center.Y+a, center.Z+a);
-//    glVertex3f(center.X-a, center.Y+a, center.Z-a);
-//    glVertex3f(center.X-a, center.Y-a, center.Z-a);
-//    glVertex3f(center.X-a, center.Y-a, center.Z+a);
-//    glEnd();
-//    glBegin(GL_LINES);
-//    glVertex3f(center.X+a, center.Y+a, center.Z+a);
-//    glVertex3f(center.X-a, center.Y+a, center.Z+a);
-//    glVertex3f(center.X+a, center.Y+a, center.Z-a);
-//    glVertex3f(center.X-a, center.Y+a, center.Z-a);
-//    glVertex3f(center.X+a, center.Y-a, center.Z-a);
-//    glVertex3f(center.X-a, center.Y-a, center.Z-a);
-//    glVertex3f(center.X+a, center.Y-a, center.Z+a);
-//    glVertex3f(center.X-a, center.Y-a, center.Z+a);
-//    glEnd();
-
 }
 
 void LifeViewer::primCubeWF(const coord& p1, const coord& p2)

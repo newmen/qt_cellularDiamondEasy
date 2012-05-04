@@ -3,9 +3,6 @@
 #include <QGLViewer/qglviewer.h>
 #include "common.h"
 
-// Cube
-void Cube(const coord *center, const float a);
-// Cube wireframe
-void CubeWF(const coord *center, const float a);
+void specifyCoords(const coord &center, float a, float &x, float &y, float &z, float &az);
 
 #endif // GLPRIMITIVES_H
