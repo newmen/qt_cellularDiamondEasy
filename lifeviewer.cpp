@@ -88,7 +88,12 @@ void LifeViewer::draw()
 
 void LifeViewer::animate()
 {
-    nextFrame();
+    gotoFrame(curFrame_ + _animationDirection);
+}
+
+void LifeViewer::startReverseAnimation()
+{
+    _animationDirection *= -1;
 }
 
 QString LifeViewer::helpString() const

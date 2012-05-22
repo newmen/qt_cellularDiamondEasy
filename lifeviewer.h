@@ -9,7 +9,7 @@ class LifeViewer : public QGLViewer
 {
 Q_OBJECT
 public:
-    explicit LifeViewer(QWidget *parent = 0) : QGLViewer(parent)
+    explicit LifeViewer(QWidget *parent = 0) : QGLViewer(parent), _animationDirection(1)
     {
         parent_ = parent;
         setSnapshotFormat("PNG");
@@ -67,6 +67,8 @@ signals:
     void frameMaxChanged(int);
 
 public slots:
+    void startReverseAnimation();
+
     void nextFrame()
     {
     	gotoFrame(curFrame_+1);
@@ -99,7 +101,8 @@ private:
     QHash<int,QColor> default_colors_;
     int drawingMode_;
     coord cmin, cmax;
-    //coord center_;
+
+    int _animationDirection;
 
     void setRadiusAndCenter();
     void loadFromFile(QString file);

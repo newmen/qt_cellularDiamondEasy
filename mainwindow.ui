@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>783</width>
-    <height>550</height>
+    <width>835</width>
+    <height>562</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -200,6 +200,25 @@
          </layout>
         </item>
         <item>
+         <widget class="QPushButton" name="bPlayBack">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>1</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="toolTip">
+           <string>Сменить направление проигрывания анимации</string>
+          </property>
+          <property name="text">
+           <string>Reverse!</string>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
          <layout class="QHBoxLayout" name="horizontalLayout_5">
           <property name="sizeConstraint">
            <enum>QLayout::SetMinimumSize</enum>
@@ -388,7 +407,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>783</width>
+     <width>835</width>
      <height>23</height>
     </rect>
    </property>
@@ -428,6 +447,7 @@
     <slot>setAnimationPeriod(int)</slot>
     <slot>setShowText(bool)</slot>
     <slot>setDrawingMode(int)</slot>
+    <slot>startReverseAnimation()</slot>
    </slots>
   </customwidget>
  </customwidgets>
@@ -734,6 +754,22 @@
     <hint type="destinationlabel">
      <x>745</x>
      <y>398</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>bPlayBack</sender>
+   <signal>clicked()</signal>
+   <receiver>viewer</receiver>
+   <slot>startReverseAnimation()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>689</x>
+     <y>223</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>280</x>
+     <y>287</y>
     </hint>
    </hints>
   </connection>
