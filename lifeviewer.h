@@ -17,12 +17,14 @@ public:
         textShown_ = false;
         color0_.setRgbF(.4f, .4f, .8f, 0.f);
 
-        default_colors_[1].setRgbF(.7f, .7f, .7f, 0.f); // серый
+        default_colors_[1].setRgbF(.45f, .45f, .45f, 0.f); // серый
         default_colors_[2].setRgbF(1.f, .96f, .1f, 0.f); // жёлтый
-        default_colors_[3].setRgbF(.4f, .8f, .4f, 0.f); // зелёный
-        default_colors_[4].setRgbF(1.f, .5f, .5f, 0.f); // розовый
-        default_colors_[5].setRgbF(1.f, .64f, 0.f, 0.f); // оранжевый
-        default_colors_[6].setRgbF(0.f, .75f, 1.f, 0.f); // голубой
+        default_colors_[3].setRgbF(.4f, .9f, .4f, 0.f); // зелёный
+        default_colors_[4].setRgbF(.9f, .6f, .6f, 0.f); // розовый
+        default_colors_[5].setRgbF(0.f, .8f, 1.f, 0.f); // голубой
+        default_colors_[6].setRgbF(1.f, .2f, .2f, 0.f); // красный
+        default_colors_[7].setRgbF(.2f, .2f, 0.9f, 0.f); // синий
+        default_colors_[8].setRgbF(1.f, .66f, 0.f, 0.f); // оранжевый
     }
     ~LifeViewer() { }
 
