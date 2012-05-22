@@ -15,7 +15,7 @@ public:
         setSnapshotFormat("PNG");
         drawingMode_ = BCUBES;
         textShown_ = false;
-        color0_.setRgbF(.4f, .4f, .8f, 0.f);
+        color0_.setRgbF(0.f, 0.f, 0.f, .5f);
 
         default_colors_[1].setRgbF(.45f, .45f, .45f, 0.f); // серый
         default_colors_[2].setRgbF(1.f, .96f, .1f, 0.f); // жёлтый
