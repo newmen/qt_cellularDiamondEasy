@@ -25,6 +25,7 @@ public:
         default_colors_[6].setRgbF(1.f, .2f, .2f, 0.f); // красный
         default_colors_[7].setRgbF(.2f, .2f, 0.9f, 0.f); // синий
         default_colors_[8].setRgbF(1.f, .66f, 0.f, 0.f); // оранжевый
+        default_colors_[9].setRgbF(.85f, .85f, 0.85f, 0.f); // серо-белый
     }
     ~LifeViewer() { }
 
